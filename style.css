@@ -1,0 +1,174 @@
+/* Simple, beginner-friendly flexbox portfolio */
+
+/* Basic page */
+:root {
+  --bg: #f5f5f5; /* page background */
+  --text: #333333; /* main text */
+  --accent: #2e89ff; /* button / highlight */
+  --card: #ffffff; /* card background */
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: burlywood;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 6%;
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+.logo {
+  font-weight: bold;
+}
+.nav a {
+  margin-left: 14px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  gap: 20px;
+  align-items: center; /* vertical center */
+  padding: 30px 6%;
+  background: white;
+  margin-top: 16px;
+}
+.profile-box {
+  flex: 0 0 160px;
+}
+.profile-img {
+  width: 140px;
+  height: 140px;
+  background: #ddd; /* colored box for profile */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #555;
+  border: 1px solid #ccc;
+}
+.intro {
+  flex: 1 1 auto;
+}
+.intro h1 {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+}
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Skills */
+.skills-section {
+  padding: 22px 6%;
+}
+.skills-section h2 {
+  margin: 0 0 12px 0;
+}
+.skills {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.skill {
+  background: var(--card);
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  flex: 1 1 160px; /* boxes horizontal, but wrap on small screens */
+  text-align: center;
+}
+
+/* Projects */
+.projects-section {
+  padding: 22px 6%;
+}
+.projects {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; /* wrap on smaller screens */
+}
+.card {
+  background: var(--card);
+  border: 1px solid #e6e6e6;
+  padding: 12px;
+  flex: 1 1 260px; /* 3 in a row on wide screens */
+}
+
+/* Contact */
+.contact-section {
+  display: flex;
+  gap: 20px;
+  padding: 22px 6%;
+  align-items: flex-start;
+}
+.contact-left {
+  flex: 1 1 360px;
+}
+.contact-right {
+  flex: 0 0 220px;
+  background: white;
+  padding: 12px;
+  border: 1px solid #eee;
+}
+
+.contact-form label {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  background: white;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 16px;
+  margin-top: 18px;
+  color: #666;
+}
+
+/* Small screens */
+@media (max-width: 760px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .profile-box {
+    order: -1;
+  } /* image first on small screens */
+  .contact-section {
+    flex-direction: column;
+  }
+  .nav {
+    display: none;
+  } /* keep nav simple for mobile (beginner) */
+}
